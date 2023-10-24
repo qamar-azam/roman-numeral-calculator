@@ -23,17 +23,20 @@ function RomanNumeralCalculator() {
 
   return (
     <>
-      {error && <div>{error}</div>}
+      {error && <div className='text-rose-600'>{error}</div>}
       <form onSubmit={convertIntToRoman}>
         <input
           type='text'
           role='textbox'
           value={input || ''}
+          className='border-2 rounded p-2 mr-2'
           onChange={(e) => setInput(Number(e.target.value))}
         />
-        <button type='submit'>Convert</button>
+        <button type='submit' className='bg-blue-500 p-2 rounded text-white'>
+          Convert
+        </button>
       </form>
-      {result && <div>{result}</div>}
+      {result && <div className='mt-4 text-2xl'>{result}</div>}
     </>
   );
 }
