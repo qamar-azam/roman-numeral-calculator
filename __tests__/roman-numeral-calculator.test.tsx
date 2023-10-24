@@ -29,7 +29,7 @@ describe('Roman Numeral Calculator', () => {
     ).toBeInTheDocument();
   });
 
-  it('input should be between 1 to 1000', () => {
+  it('should give error if input is not between 1 to 1000', () => {
     render(<RomanNumeralCalculator />);
 
     const input = screen.getByRole('textbox');
@@ -39,6 +39,25 @@ describe('Roman Numeral Calculator', () => {
     expect(
       screen.getByText(/Please enter number between 1 to 1000./i)
     ).toBeInTheDocument();
+  });
+
+  it('should hide error when user clicked on convert button', () => {
+    render(<RomanNumeralCalculator />);
+
+    const input = screen.getByRole('textbox');
+    fireEvent.change(input, { target: { value: '3000' } });
+    fireEvent.click(screen.getByText('Convert'));
+
+    expect(
+      screen.getByText(/Please enter number between 1 to 1000./i)
+    ).toBeInTheDocument();
+
+    fireEvent.change(input, { target: { value: '500' } });
+    fireEvent.click(screen.getByText('Convert'));
+
+    expect(
+      screen.queryByText(/Please enter number between 1 to 1000./i)
+    ).not.toBeInTheDocument();
   });
 
   it('should display Nulla for the value of 0', () => {
