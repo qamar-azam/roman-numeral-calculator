@@ -9,6 +9,9 @@ function RomanNumeralCalculator() {
   const convertIntToRoman = (e: React.FormEvent) => {
     e.preventDefault();
 
+    setError('');
+    setResult('');
+
     // check input shouldn't be less then 0
     if (input < 0) {
       setError('Please enter non negative integers only.');
