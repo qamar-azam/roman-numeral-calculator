@@ -2,22 +2,24 @@
 
 exports[`renders homepage unchanged 1`] = `
 <div>
-  <div
-    class="container"
-  >
-    <main>
+  <div>
+    <main
+      class="text-center"
+    >
       <h1
-        class="title"
+        class="text-4xl mt-8 mb-8"
       >
         Roman Numeral Calculator
       </h1>
       <form>
         <input
+          class="border-2 rounded p-2 mr-2"
           role="textbox"
           type="text"
           value=""
         />
         <button
+          class="bg-blue-500 p-2 rounded text-white"
           type="submit"
         >
           Convert
